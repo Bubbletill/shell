@@ -6,7 +6,7 @@ namespace BT_SHELL
     public partial class Shell : Form
     {
 
-        private string passwordHash = "86F35B58DD51D308154332C77E11BC960B2FEEA12D18AB34A79824DE3017C5946160A6722F859010EBE6EED29530A17F5EABC953440BB4F2B1D0757FD8B29428";
+        private string passwordHash = "29297204E1506F949E0EEA8E2D935A8CEA64E09FF165445411B6FADBF4CA25BD890D8092856DEB179BB8A36714BBD10B5099E39EE705B6E9D910E6CB1E54A365";
         private Boolean canClose = false;
 
         public Shell()
@@ -29,7 +29,7 @@ namespace BT_SHELL
             {
                 string inputPass = ShowDialog("Enter master password", "Authorization required");
 
-                const string passSalt = "ilovemen123";
+                const string passSalt = "bubb13t1ll";
                 const int passKeySize = 64;
                 const int passIterations = 350000;
 
@@ -48,7 +48,6 @@ namespace BT_SHELL
                 bool passwordOK = passwordHash == hashedInputStr;
 
                 if (passwordOK == true)
-
                 {
                     canClose = true;
                     Application.Exit();
