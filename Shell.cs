@@ -1,6 +1,7 @@
 namespace BT_SHELL
 {
     using System.Security.Cryptography;
+    using System.Diagnostics;
     using System.Text;
 
     public partial class Shell : Form
@@ -8,10 +9,18 @@ namespace BT_SHELL
 
         private string passwordHash = "29297204E1506F949E0EEA8E2D935A8CEA64E09FF165445411B6FADBF4CA25BD890D8092856DEB179BB8A36714BBD10B5099E39EE705B6E9D910E6CB1E54A365";
         private Boolean canClose = false;
+        private Process posProcess;
 
         public Shell()
         {
             InitializeComponent();
+            posProcess = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            posProcess.StartInfo = startInfo;
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            startInfo.FileName = "javaw";
+            startInfo.Arguments = "-jar C:\\bubbletill\\pos.jar";
+            posProcess.Start();
         }
 
         private void Shell_FormClosing(object sender, FormClosingEventArgs e)
@@ -51,7 +60,7 @@ namespace BT_SHELL
                 {
                     canClose = true;
                     Application.Exit();
-                    System.Diagnostics.Process.Start("C:\\Windows\\explorer.exe");
+                    Process.Start("C:\\Windows\\explorer.exe");
                 }
             }
 
@@ -61,7 +70,17 @@ namespace BT_SHELL
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to restart the application?", "Confirm restart", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    //do something
+                    if (!posProcess.HasExited)
+                    {
+                        posProcess.Kill();
+                    }
+                    posProcess = new Process();
+                    ProcessStartInfo startInfo = new ProcessStartInfo();
+                    posProcess.StartInfo = startInfo;
+                    startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    startInfo.FileName = "javaw";
+                    startInfo.Arguments = "-jar C:\\bubbletill\\pos.jar";
+                    posProcess.Start();
                 }
             }
         }
