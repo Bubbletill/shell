@@ -18,8 +18,7 @@ namespace BT_SHELL
             ProcessStartInfo startInfo = new ProcessStartInfo();
             posProcess.StartInfo = startInfo;
             startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            startInfo.FileName = "javaw";
-            startInfo.Arguments = "-jar C:\\bubbletill\\pos.jar";
+            startInfo.FileName = "C:\\bubbletill\\pos\\BT-POS.exe";
             posProcess.Start();
         }
 
@@ -78,8 +77,7 @@ namespace BT_SHELL
                     ProcessStartInfo startInfo = new ProcessStartInfo();
                     posProcess.StartInfo = startInfo;
                     startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    startInfo.FileName = "javaw";
-                    startInfo.Arguments = "-jar C:\\bubbletill\\pos.jar";
+                    startInfo.FileName = "C:\\bubbletill\\pos\\BT-POS.exe";
                     posProcess.Start();
                 }
             }
