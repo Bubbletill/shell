@@ -18,7 +18,7 @@ namespace BT_SHELL
             ProcessStartInfo startInfo = new ProcessStartInfo();
             posProcess.StartInfo = startInfo;
             startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            startInfo.FileName = "C:\\bubbletill\\pos\\BT-POS.exe";
+            startInfo.FileName = "C:\\bubbletill\\pos\\Bubbletill-POS.exe";
             posProcess.Start();
         }
 
@@ -77,7 +77,7 @@ namespace BT_SHELL
                     ProcessStartInfo startInfo = new ProcessStartInfo();
                     posProcess.StartInfo = startInfo;
                     startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                    startInfo.FileName = "C:\\bubbletill\\pos\\BT-POS.exe";
+                    startInfo.FileName = "C:\\bubbletill\\pos\\Bubbletill-POS.exe";
                     posProcess.Start();
                 }
             }
